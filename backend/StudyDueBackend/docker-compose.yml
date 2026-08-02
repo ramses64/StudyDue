@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: studydue-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: studydue
+      POSTGRES_USER: studydue_user
+      POSTGRES_PASSWORD: studydue_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - studydue_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  studydue_postgres_data:

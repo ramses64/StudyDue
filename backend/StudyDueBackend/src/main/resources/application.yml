@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8081}
+
+spring:
+  application:
+    name: studydue-backend
+
+  profiles:
+    default: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
